@@ -8,22 +8,24 @@ import static org.hamcrest.CoreMatchers.containsString;
 public class BibliotecaAppTest {
     @Test
     public void executeShouldCallPrint() {
-        SpyPrinter spy = new SpyPrinter();
-        BibliotecaApp app = new BibliotecaApp(spy);
+        SpyPrinter spyPrinter = new SpyPrinter();
+        SpyLibrary spyLibrary = new SpyLibrary();
+        BibliotecaApp app = new BibliotecaApp(spyPrinter, spyLibrary);
 
         app.execute();
 
-        assertTrue(spy.isCalled);
+        assertTrue(spyPrinter.isCalled);
     }
 
     @Test
     public void executeShouldPrintWelcomeMessage() {
-        MockPrinter mock = new MockPrinter();
-        BibliotecaApp app = new BibliotecaApp(mock);
+        MockPrinter mockPrinter = new MockPrinter();
+        MockLibrary mockLibrary = new MockLibrary();
+        BibliotecaApp app = new BibliotecaApp(mockPrinter, mockLibrary);
 
         app.execute();
 
-        assertThat(mock.content, containsString("Welcome"));
+        assertThat(mockPrinter.content, containsString("Welcome"));
     }
 
     private class SpyPrinter implements IPrinter {
@@ -43,4 +45,7 @@ public class BibliotecaAppTest {
             this.content = message;
         }
     }
+
+    private class SpyLibrary extends Library {}
+    private class MockLibrary extends Library {}
 }

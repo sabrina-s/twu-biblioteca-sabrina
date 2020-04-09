@@ -16,4 +16,9 @@ public class Library {
     public ArrayList<Book> getBooks() {
         return books;
     }
+
+    public void printBooks() {
+        System.out.println("Title | Author | Year of publication");
+        books.forEach(book -> book.printBook());
+    }
 }

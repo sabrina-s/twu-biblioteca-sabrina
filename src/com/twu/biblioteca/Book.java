@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book extends Printer {
     private String title;
     private String author;
     private int publicationYear;
@@ -21,5 +21,9 @@ public class Book {
 
     public int getPublicationYear() {
         return publicationYear;
+    }
+
+    public void printBook() {
+        print(getTitle() + " | " + getAuthor() + " | " + getPublicationYear());
     }
 }

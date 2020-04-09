@@ -6,8 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 
 public class LibraryTest {
     Library library = new Library();
@@ -33,6 +32,11 @@ public class LibraryTest {
     public void getBooksShouldReturnAllBooksInLibrary() {
         assertThat(library.getBooks().size(), is(2));
         assertThat(library.getBooks(), hasItems(book1, book2));
+    }
+
+    @Test
+    public void printBooksShouldPrintDetailsOfBooks() {
+//        assertThat(library.printBooks()...)
     }
 }
 

@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class BibliotecaApp {
-    public static final String WELCOME_MESSAGE = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+    public static final String WELCOME_MESSAGE = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n";
     private IPrinter printer;
     private Library library;
 
@@ -23,5 +23,8 @@ public class BibliotecaApp {
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
+
+//        print a list of all books
+        library.printBooks();
     }
 }

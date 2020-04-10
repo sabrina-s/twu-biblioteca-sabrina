@@ -3,20 +3,21 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
+import static org.mockito.Mockito.*;
 
 public class LibraryTest {
     Library library = new Library();
-    Book book1 = new Book("Test book", "Alice", 1997);
-    Book book2 = new Book("Test book 2", "Bob", 2000);
-    Book book3 = new Book("Test book 3", "Corey", 1986);
+    private Book book1;
+    private Book book2;
+    private Book book3;
 
     @Before
     public void beforeEach() {
-        ArrayList<Book> books =  new ArrayList<Book>();
+        book1 = mock(Book.class);
+        book2 = mock(Book.class);
+        book3 = mock(Book.class);
         library.addBook(book1);
         library.addBook(book2);
     }
@@ -25,7 +26,7 @@ public class LibraryTest {
     public void addBookShouldAddBookToLibrary() {
         library.addBook(book3);
 
-        assertThat(library.getBooks(), hasItems(book1, book2));
+        assertThat(library.getBooks(), hasItems(book1, book2, book3));
     }
 
     @Test
@@ -36,7 +37,9 @@ public class LibraryTest {
 
     @Test
     public void printBooksShouldPrintDetailsOfBooks() {
-//        assertThat(library.printBooks()...)
+        library.printBooks();
+
+        verify(book1).printBook();
+        verify(book2).printBook();
     }
 }
-

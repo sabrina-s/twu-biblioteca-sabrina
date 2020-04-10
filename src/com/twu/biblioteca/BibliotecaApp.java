@@ -4,10 +4,12 @@ public class BibliotecaApp {
     public static final String WELCOME_MESSAGE = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n";
     private IPrinter printer;
     private Library library;
+    private Menu menu;
 
-    public BibliotecaApp(IPrinter printer, Library library) {
+    public BibliotecaApp(IPrinter printer, Library library, Menu menu) {
         this.printer = printer;
         this.library = library;
+        this.menu = menu;
     }
 
     public void execute() {
@@ -22,7 +24,10 @@ public class BibliotecaApp {
         library.addBook(book2);
         library.addBook(book3);
 
+//        display menu
+        menu.printOptions();
+
 //        print a list of all books
-        library.printBooks();
+//        library.printBooks();
     }
 }

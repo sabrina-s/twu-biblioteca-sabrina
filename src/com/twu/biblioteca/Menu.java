@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Menu {
+public class Menu extends Printer {
     private ArrayList<String> menuOptions;
 
     public Menu() {
@@ -14,5 +14,12 @@ public class Menu {
 
     public ArrayList<String> getOptions() {
         return menuOptions;
+    }
+
+    public void printOptions() {
+        System.out.println("Please select an option.");
+        for(int i = 0; i < menuOptions.size(); i++) {
+            System.out.println(menuOptions.get(i));
+        }
     }
 }

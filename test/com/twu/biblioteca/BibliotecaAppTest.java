@@ -10,7 +10,8 @@ public class BibliotecaAppTest {
     public void executeShouldCallPrint() {
         SpyPrinter spyPrinter = new SpyPrinter();
         SpyLibrary spyLibrary = new SpyLibrary();
-        BibliotecaApp app = new BibliotecaApp(spyPrinter, spyLibrary);
+        SpyMenu spyMenu = new SpyMenu();
+        BibliotecaApp app = new BibliotecaApp(spyPrinter, spyLibrary, spyMenu);
 
         app.execute();
 
@@ -21,7 +22,8 @@ public class BibliotecaAppTest {
     public void executeShouldPrintWelcomeMessage() {
         MockPrinter mockPrinter = new MockPrinter();
         MockLibrary mockLibrary = new MockLibrary();
-        BibliotecaApp app = new BibliotecaApp(mockPrinter, mockLibrary);
+        MockMenu mockMenu = new MockMenu();
+        BibliotecaApp app = new BibliotecaApp(mockPrinter, mockLibrary, mockMenu);
 
         app.execute();
 
@@ -48,4 +50,6 @@ public class BibliotecaAppTest {
 
     private class SpyLibrary extends Library {}
     private class MockLibrary extends Library {}
+    private class SpyMenu extends Menu {}
+    private class MockMenu extends Menu {}
 }

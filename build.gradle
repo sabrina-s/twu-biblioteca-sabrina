@@ -8,6 +8,7 @@
 
 plugins {
     // Apply the java-library plugin to add support for Java Library
+    id 'java'
     id 'java-library'
 }
 
@@ -15,6 +16,7 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -26,5 +28,5 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:2.+'
+    testImplementation 'org.mockito:mockito-core:2.7.22'
 }

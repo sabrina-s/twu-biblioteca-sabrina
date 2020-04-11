@@ -21,5 +21,6 @@ public class Menu extends Printer {
         for(int i = 0; i < menuOptions.size(); i++) {
             System.out.println(menuOptions.get(i));
         }
+        System.out.println("");
     }
 }

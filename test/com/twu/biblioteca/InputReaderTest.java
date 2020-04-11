@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,6 +11,9 @@ import static org.hamcrest.CoreMatchers.*;
 import java.io.*;
 
 public class InputReaderTest {
+    private InputStream systemIn = System.in;
+    private PrintStream systemOut = System.out;
+
     private ByteArrayInputStream input;
     private ByteArrayOutputStream output;
 
@@ -25,9 +29,15 @@ public class InputReaderTest {
         System.setOut(new PrintStream(output));
     }
 
+    @After
+    public void reset() {
+        System.setIn(systemIn);
+        System.setOut(systemOut);
+    }
+
     @Test
     public void getInputShouldDisplayInstructions() {
-        InputReader.getInput();
+        inputReader.getInput();
 
         assertThat(output.toString(), containsString("Enter option number:"));
     }
@@ -36,4 +46,16 @@ public class InputReaderTest {
     public void getInputShouldReceiveUserInput() {
         assertEquals(userInput, inputReader.getInput());
     }
+
+//        TODO: fix this
+//    @Test
+//    public void getInputShouldPromptUserToTryAgainIfInputIsInvalid() {
+//        userInput = "-1";
+//        input = new ByteArrayInputStream(userInput.getBytes());
+//        System.setIn(input);
+//
+//        inputReader.getInput();
+//
+//        assertThat(output.toString(), containsString("Please select a valid option!"));
+//    }
 }

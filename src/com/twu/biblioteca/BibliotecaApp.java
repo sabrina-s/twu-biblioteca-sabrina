@@ -1,12 +1,11 @@
 package com.twu.biblioteca;
+import static com.twu.biblioteca.Constants.WELCOME_MESSAGE;
 
 public class BibliotecaApp {
-    public static final String WELCOME_MESSAGE = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n";
     private IPrinter printer;
     private Library library;
     private Menu menu;
     private InputReader inputReader;
-    private String input;
 
     public BibliotecaApp(IPrinter printer, Library library, Menu menu, InputReader inputReader) {
         this.printer = printer;
@@ -31,13 +30,15 @@ public class BibliotecaApp {
         menu.printOptions();
 
 //        get user input
-        input = inputReader.getInput();
+        String input = inputReader.getInput();
 
 //        perform action based on user input
         performAction(input);
     }
 
     private void performAction(String input) {
+        System.out.println();
+
         switch(input) {
             case "1":
                 library.printBooks();

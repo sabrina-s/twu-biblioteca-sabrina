@@ -11,7 +11,8 @@ public class BibliotecaAppTest {
         SpyPrinter spyPrinter = new SpyPrinter();
         SpyLibrary spyLibrary = new SpyLibrary();
         SpyMenu spyMenu = new SpyMenu();
-        BibliotecaApp app = new BibliotecaApp(spyPrinter, spyLibrary, spyMenu);
+        SpyInputReader spyInputReader = new SpyInputReader();
+        BibliotecaApp app = new BibliotecaApp(spyPrinter, spyLibrary, spyMenu, spyInputReader);
 
         app.execute();
 
@@ -23,7 +24,8 @@ public class BibliotecaAppTest {
         MockPrinter mockPrinter = new MockPrinter();
         MockLibrary mockLibrary = new MockLibrary();
         MockMenu mockMenu = new MockMenu();
-        BibliotecaApp app = new BibliotecaApp(mockPrinter, mockLibrary, mockMenu);
+        MockInputReader mockInputReader = new MockInputReader();
+        BibliotecaApp app = new BibliotecaApp(mockPrinter, mockLibrary, mockMenu, mockInputReader);
 
         app.execute();
 
@@ -52,4 +54,6 @@ public class BibliotecaAppTest {
     private class MockLibrary extends Library {}
     private class SpyMenu extends Menu {}
     private class MockMenu extends Menu {}
+    private class SpyInputReader extends InputReader {}
+    private class MockInputReader extends InputReader {}
 }

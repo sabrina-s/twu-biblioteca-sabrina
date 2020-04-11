@@ -5,11 +5,14 @@ public class BibliotecaApp {
     private IPrinter printer;
     private Library library;
     private Menu menu;
+    private InputReader inputReader;
+    private String input;
 
-    public BibliotecaApp(IPrinter printer, Library library, Menu menu) {
+    public BibliotecaApp(IPrinter printer, Library library, Menu menu, InputReader inputReader) {
         this.printer = printer;
         this.library = library;
         this.menu = menu;
+        this.inputReader = inputReader;
     }
 
     public void execute() {
@@ -27,7 +30,18 @@ public class BibliotecaApp {
 //        display menu
         menu.printOptions();
 
-//        print a list of all books
-//        library.printBooks();
+//        get user input
+        input = inputReader.getInput();
+
+//        perform action based on user input
+        performAction(input);
+    }
+
+    private void performAction(String input) {
+        switch(input) {
+            case "1":
+                library.printBooks();
+                break;
+        }
     }
 }

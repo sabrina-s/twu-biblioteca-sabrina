@@ -5,7 +5,8 @@ public class Main {
         BibliotecaApp app = new BibliotecaApp(
                 new Printer(),
                 new Library(),
-                new Menu()
+                new Menu(),
+                new InputReader()
         );
 
         app.execute();

@@ -19,6 +19,24 @@ public class Library {
 
     public void printBooks() {
         System.out.println("Title | Author | Year of publication");
-        books.forEach(book -> book.printBook());
+
+        books.stream().filter(b -> b.available == true )
+                .forEach(book -> book.printBook());
+    }
+
+    public void checkoutBook(String title) {
+        boolean exists = false;
+
+        for (Book b : books) {
+            if (b.getTitle().equals(title)) {
+                exists = true;
+                b.available = false;
+                System.out.println("Thank you! Enjoy the book");
+            }
+        }
+
+        if (exists == false) {
+            System.out.println("Sorry, that book is not available");
+        }
     }
 }

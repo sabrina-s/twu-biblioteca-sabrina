@@ -6,5 +6,5 @@ import java.util.Arrays;
 public final class Constants {
     public static final String WELCOME_MESSAGE = "Welcome to Biblioteca. Your one-stop-shop " +
             "for great book titles in Bangalore!\n";
-    public static final ArrayList<String> VALID_INPUTS = new ArrayList<>(Arrays.asList("1", "0"));
+    public static final ArrayList<String> VALID_INPUTS = new ArrayList<>(Arrays.asList("0", "1", "2"));
 }

@@ -4,6 +4,7 @@ public class Book extends Printer {
     private String title;
     private String author;
     private int publicationYear;
+    protected boolean available = true;
 
     public Book(String title, String author, int publicationYear) {
         this.title = title;
@@ -24,6 +25,9 @@ public class Book extends Printer {
     }
 
     public void printBook() {
-        print(getTitle() + " | " + getAuthor() + " | " + getPublicationYear());
+        print(getTitle() + " | "
+                + getAuthor() + " | "
+                + getPublicationYear()
+        );
     }
 }

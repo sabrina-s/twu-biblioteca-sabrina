@@ -15,7 +15,8 @@ public class MenuTest {
     public void getOptionsShouldReturnMenuOptions() {
         ArrayList<String> options = menu.getOptions();
 
-        assertThat(options.get(0), equalTo("1. List of books"));
+        assertThat(options.get(0), equalTo("0. Quit"));
+        assertThat(options.get(1), equalTo("1. List of books"));
     }
 
     @Test

@@ -40,6 +40,9 @@ public class BibliotecaApp {
         System.out.println();
 
         switch(input) {
+            case "0":
+                System.out.println("Goodbye!");
+                break;
             case "1":
                 library.printBooks();
                 break;

@@ -47,15 +47,15 @@ public class InputReaderTest {
         assertEquals(userInput, inputReader.getInput());
     }
 
-//        TODO: fix this
-//    @Test
-//    public void getInputShouldPromptUserToTryAgainIfInputIsInvalid() {
-//        userInput = "-1";
-//        input = new ByteArrayInputStream(userInput.getBytes());
-//        System.setIn(input);
-//
-//        inputReader.getInput();
-//
-//        assertThat(output.toString(), containsString("Please select a valid option!"));
-//    }
+//        TODO: implement enum to eliminate Primitive Obsession
+    @Test
+    public void getInputShouldPromptUserToTryAgainIfInputIsInvalid() {
+        userInput = "-1\n1";
+        input = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(input);
+
+        inputReader.getInput();
+
+        assertThat(output.toString(), containsString("Please select a valid option!"));
+    }
 }

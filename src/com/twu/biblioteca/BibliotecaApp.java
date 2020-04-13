@@ -16,7 +16,7 @@ public class BibliotecaApp {
         this.inputReader = inputReader;
     }
 
-    public void execute() {
+    public boolean execute() {
 //        print welcome message
         printer.print(WELCOME_MESSAGE);
 
@@ -36,6 +36,8 @@ public class BibliotecaApp {
 
 //        perform action based on user input
         performAction(input);
+
+        return !input.equals("0");
     }
 
     private void performAction(String input) {

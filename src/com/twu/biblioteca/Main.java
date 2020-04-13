@@ -9,6 +9,10 @@ public class Main {
                 new InputReader()
         );
 
-        app.execute();
+        boolean active = app.execute();
+
+        while (active) {
+            active = app.execute();
+        }
     }
 }

@@ -32,12 +32,14 @@ public class BibliotecaApp {
         menu.printOptions();
 
 //        get user input
-        String input = inputReader.getInput();
+        InputReader menuInputReader = new InputReader("menu");
+        menuInputReader.run();
+        String menuInput = menuInputReader.input;
 
 //        perform action based on user input
-        performAction(input);
+        performAction(menuInput);
 
-        return !input.equals("0");
+        return !menuInput.equals("0");
     }
 
     private void performAction(String input) {

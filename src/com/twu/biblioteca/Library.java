@@ -22,6 +22,8 @@ public class Library {
 
         books.stream().filter(b -> b.available == true )
                 .forEach(book -> book.printBook());
+
+        System.out.println();
     }
 
     public void checkoutBook(String title) {

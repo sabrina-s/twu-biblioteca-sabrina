@@ -17,7 +17,7 @@ public class InputReaderTest {
     private ByteArrayInputStream input;
     private ByteArrayOutputStream output;
 
-    InputReader inputReader = new InputReader();
+    InputReader inputReader = new InputReader("menu");
     String userInput = "1";
 
     @Before
@@ -36,8 +36,8 @@ public class InputReaderTest {
     }
 
     @Test
-    public void getInputShouldDisplayInstructions() {
-        inputReader.getInput();
+    public void runShouldDisplayInstructions() {
+        inputReader.run();
 
         assertThat(output.toString(), containsString("Enter option number:"));
     }
@@ -54,7 +54,7 @@ public class InputReaderTest {
         input = new ByteArrayInputStream(userInput.getBytes());
         System.setIn(input);
 
-        inputReader.getInput();
+        inputReader.run();
 
         assertThat(output.toString(), containsString("Please select a valid option!"));
     }

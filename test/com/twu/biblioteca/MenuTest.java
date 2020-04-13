@@ -12,21 +12,16 @@ public class MenuTest {
     Menu menu = new Menu();
 
     @Test
-    public void getOptionsShouldReturnMenuOptions() {
-        ArrayList<String> options = menu.getOptions();
-
-        assertThat(options.get(0), equalTo("0. Quit"));
-        assertThat(options.get(1), equalTo("1. List of books"));
-    }
-
-    @Test
     public void printOptionsShouldPrintMenuOptions() {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
         menu.printOptions();
 
-        assertThat(output.toString(), containsString("Please select an option."));
-        assertThat(output.toString(), containsString("List of books"));
+        assertThat(output.toString(),
+                both(containsString("Please select an option.")).
+                and(containsString("Quit")).
+                and(containsString("List of books")).
+                and(containsString("Checkout book")));
     }
 }

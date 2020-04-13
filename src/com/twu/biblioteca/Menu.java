@@ -14,10 +14,6 @@ public class Menu extends Printer {
         ));
     }
 
-    public ArrayList<String> getOptions() {
-        return menuOptions;
-    }
-
     public void printOptions() {
         System.out.println("Please select an option.");
         for(int i = 0; i < menuOptions.size(); i++) {

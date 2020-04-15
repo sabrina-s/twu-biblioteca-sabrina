@@ -5,7 +5,6 @@ public class Main {
         Printer printer = new Printer();
         Library library = new Library();
         Menu menu = new Menu();
-        InputReader inputReader = new InputReader();
 
         // populate library with books
         Book book1 = new Book("Book1", "Author1", 2001);
@@ -16,7 +15,7 @@ public class Main {
         library.addBook(book3);
 
         BibliotecaApp app = new BibliotecaApp(
-                printer, library, menu, inputReader
+                printer, library, menu
         );
 
         boolean active = app.execute();

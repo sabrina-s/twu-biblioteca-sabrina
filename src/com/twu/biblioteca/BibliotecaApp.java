@@ -7,13 +7,11 @@ public class BibliotecaApp {
     private IPrinter printer;
     private Library library;
     private Menu menu;
-    private InputReader inputReader;
 
-    public BibliotecaApp(IPrinter printer, Library library, Menu menu, InputReader inputReader) {
+    public BibliotecaApp(IPrinter printer, Library library, Menu menu) {
         this.printer = printer;
         this.library = library;
         this.menu = menu;
-        this.inputReader = inputReader;
     }
 
     public boolean execute() {

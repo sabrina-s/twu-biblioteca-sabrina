@@ -4,7 +4,7 @@ import static com.twu.biblioteca.Constants.VALID_MENU_INPUTS;
 import java.util.Scanner;
 
 public class InputReader {
-    public String input;
+    private String input;
     private String type;
     private Scanner scanner = new Scanner(System.in);
 
@@ -14,7 +14,7 @@ public class InputReader {
 
     public void run() {
         printInstructions();
-        getInput();
+        processInput();
     }
 
     private void printInstructions() {
@@ -25,7 +25,7 @@ public class InputReader {
         }
     }
 
-    public String getInput() {
+    private String processInput() {
         input = scanner.nextLine();
         boolean valid = validateInput(input);
 
@@ -34,6 +34,10 @@ public class InputReader {
             valid = validateInput(input);
         }
 
+        return input;
+    }
+
+    public String getInput() {
         return input;
     }
 

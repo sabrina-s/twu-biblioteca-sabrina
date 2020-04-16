@@ -23,7 +23,7 @@ public class BibliotecaApp {
 //        get user menu input
         InputReader menuInputReader = new InputReader("menu");
         menuInputReader.run();
-        String menuInput = menuInputReader.input;
+        String menuInput = menuInputReader.getInput();
 
 //        perform action based on user input
         performAction(menuInput);
@@ -53,7 +53,7 @@ public class BibliotecaApp {
     private String bookInput() {
         InputReader bookInputReader = new InputReader("book");
         bookInputReader.run();
-        return bookInputReader.input;
+        return bookInputReader.getInput();
     }
 
     private void checkoutBook() {

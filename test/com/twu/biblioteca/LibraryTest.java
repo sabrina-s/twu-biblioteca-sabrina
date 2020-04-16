@@ -69,6 +69,8 @@ public class LibraryTest {
         library.checkoutBook(book1.getTitle());
 
         assertThat(book1.available, equalTo(false));
+        assertThat(output.toString(), containsString(
+                "Thank you! Enjoy the book"));
     }
 
     @Test

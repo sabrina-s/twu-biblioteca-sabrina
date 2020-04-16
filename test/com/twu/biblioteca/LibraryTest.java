@@ -81,4 +81,30 @@ public class LibraryTest {
         assertThat(output.toString(), containsString(
                 "Sorry, that book is not available"));
     }
+
+    @Test
+    public void returnBookShouldReturnBookIfValid() {
+        library.checkoutBook(book1.getTitle());
+        library.returnBook(book1.getTitle());
+
+        assertThat(book1.available, equalTo(true));
+        assertThat(output.toString(), containsString(
+                "Thank you for returning the book"));
+    }
+
+    @Test
+    public void returnBookShouldReturnErrorMessageIfBookWasNotCheckedOut() {
+        library.returnBook(book1.getTitle());
+
+        assertThat(output.toString(), containsString(
+                "That is not a valid book to return"));
+    }
+
+    @Test
+    public void returnBookShouldReturnErrorMessageIfBookDoesNotExist() {
+        library.returnBook("Non-existent Book");
+
+        assertThat(output.toString(), containsString(
+                "That is not a valid book to return"));
+    }
 }

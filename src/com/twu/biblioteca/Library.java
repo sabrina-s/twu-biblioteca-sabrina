@@ -41,4 +41,20 @@ public class Library {
             System.out.println("Sorry, that book is not available");
         }
     }
+
+    public void returnBook(String title) {
+        boolean exists = false;
+
+        for (Book b : books) {
+            if (b.getTitle().equals(title) && !b.available) {
+                exists = true;
+                b.available = true;
+                System.out.println("Thank you for returning the book");
+            }
+        }
+
+        if (exists == false) {
+            System.out.println("That is not a valid book to return");
+        }
+    }
 }

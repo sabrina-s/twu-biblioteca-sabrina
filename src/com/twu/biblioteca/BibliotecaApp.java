@@ -44,13 +44,23 @@ public class BibliotecaApp {
             case "2":
                 checkoutBook();
                 break;
+            case "3":
+                returnBook();
+                break;
         }
     }
 
-    private void checkoutBook() {
+    private String bookInput() {
         InputReader bookInputReader = new InputReader("book");
         bookInputReader.run();
-        String bookInput = bookInputReader.input;
-        library.checkoutBook(bookInput);
+        return bookInputReader.input;
+    }
+
+    private void checkoutBook() {
+        library.checkoutBook(bookInput());
+    }
+
+    private void returnBook() {
+        library.returnBook(bookInput());
     }
 }

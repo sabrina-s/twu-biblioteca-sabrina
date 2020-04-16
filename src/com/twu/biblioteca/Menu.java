@@ -10,7 +10,8 @@ public class Menu extends Printer {
         this.menuOptions = new ArrayList<String>(Arrays.asList(
                 "0. Quit",
                 "1. List of books",
-                "2. Checkout book"
+                "2. Checkout book",
+                "3. Return book"
         ));
     }
 

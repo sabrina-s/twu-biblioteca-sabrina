@@ -22,6 +22,7 @@ public class MenuTest {
                 both(containsString("Please select an option.")).
                 and(containsString("Quit")).
                 and(containsString("List of books")).
-                and(containsString("Checkout book")));
+                and(containsString("Checkout book")).
+                and(containsString("Return book")));
     }
 }

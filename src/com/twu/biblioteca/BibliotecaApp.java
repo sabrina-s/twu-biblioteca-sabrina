@@ -1,5 +1,4 @@
 package com.twu.biblioteca;
-import java.util.Scanner;
 
 import static com.twu.biblioteca.Constants.WELCOME_MESSAGE;
 
@@ -21,7 +20,7 @@ public class BibliotecaApp {
 //        display menu
         menu.printOptions();
 
-//        get user input
+//        get user menu input
         InputReader menuInputReader = new InputReader("menu");
         menuInputReader.run();
         String menuInput = menuInputReader.input;
@@ -43,11 +42,15 @@ public class BibliotecaApp {
                 library.printBooks();
                 break;
             case "2":
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Enter title of book: ");
-                String bookToCheckout = scanner.nextLine();
-                library.checkoutBook(bookToCheckout);
+                checkoutBook();
                 break;
         }
+    }
+
+    private void checkoutBook() {
+        InputReader bookInputReader = new InputReader("book");
+        bookInputReader.run();
+        String bookInput = bookInputReader.input;
+        library.checkoutBook(bookInput);
     }
 }

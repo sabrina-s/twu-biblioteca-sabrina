@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
-import static com.twu.biblioteca.Constants.VALID_INPUTS;
+import static com.twu.biblioteca.Constants.VALID_MENU_INPUTS;
 
 import java.util.Scanner;
 
@@ -7,8 +7,6 @@ public class InputReader {
     public String input;
     private String type;
     private Scanner scanner = new Scanner(System.in);
-
-    public InputReader() {}
 
     public InputReader(String type) {
         this.type = type;
@@ -22,6 +20,8 @@ public class InputReader {
     private void printInstructions() {
         if (type.equals("menu")) {
             System.out.print("Enter option number: ");
+        } else if (type.equals("book")) {
+            System.out.print("Enter title of book: ");
         }
     }
 
@@ -38,7 +38,9 @@ public class InputReader {
     }
 
     private boolean validateInput(String input) {
-        if (VALID_INPUTS.contains(input)) {
+        if (type.equals("menu") && VALID_MENU_INPUTS.contains(input)) {
+            return true;
+        } else if (type.equals("book")) {
             return true;
         } else {
             System.out.println("Please select a valid option!");

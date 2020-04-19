@@ -4,17 +4,25 @@ import java.util.ArrayList;
 
 public class Library {
     private ArrayList<Book> books;
+    private ArrayList<Movie> movies;
 
     public Library() {
-        this.books = new ArrayList<Book>();
+        this.books = new ArrayList<>();
+        this.movies = new ArrayList<>();
     }
 
     public void addBook(Book book) {
         books.add(book);
     }
 
+    public void addMovie(Movie movie) { movies.add(movie); };
+
     public ArrayList<Book> getBooks() {
         return books;
+    }
+
+    public ArrayList<Movie> getMovies() {
+        return movies;
     }
 
     public void printBooks() {

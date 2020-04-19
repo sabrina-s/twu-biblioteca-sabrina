@@ -16,6 +16,8 @@ public class LibraryTest {
     private Book book1;
     private Book book2;
     private Book book3;
+    private Movie movie1;
+    private Movie movie2;
 
     private PrintStream systemOut = System.out;
     private ByteArrayOutputStream output;
@@ -25,8 +27,11 @@ public class LibraryTest {
         book1 = new Book("Book1", "Author1", 2001);
         book2 = new Book("Book2", "Author2", 2002);
         book3 = new Book("Book3", "Author3", 2003);
+        movie1 = new Movie("Movie1", "Director1", 2001, 8);
+        movie2 = new Movie("Movie2", "Director2", 2002);
         library.addBook(book1);
         library.addBook(book2);
+        library.addMovie(movie1);
     }
 
     @Before
@@ -48,9 +53,22 @@ public class LibraryTest {
     }
 
     @Test
+    public void addMovieShouldAddMovieToLibrary() {
+        library.addMovie(movie2);
+
+        assertThat(library.getMovies(), hasItems(movie1, movie2));
+    }
+
+    @Test
     public void getBooksShouldReturnAllBooksInLibrary() {
         assertThat(library.getBooks().size(), is(2));
         assertThat(library.getBooks(), hasItems(book1, book2));
+    }
+
+    @Test
+    public void getMoviesShouldReturnAllMoviesInLibrary() {
+        assertThat(library.getMovies().size(), is(1));
+        assertThat(library.getMovies(), hasItems(movie1));
     }
 
     @Test

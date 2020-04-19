@@ -1,15 +1,15 @@
 package com.twu.biblioteca;
 
-public class Book extends Printer {
+public class Book {
     private String title;
     private String author;
-    private int publicationYear;
+    private int year;
     protected boolean available = true;
 
-    public Book(String title, String author, int publicationYear) {
+    public Book(String title, String author, int year) {
         this.title = title;
         this.author = author;
-        this.publicationYear = publicationYear;
+        this.year = year;
     }
 
     public String getTitle() {
@@ -20,14 +20,13 @@ public class Book extends Printer {
         return author;
     }
 
-    public int getPublicationYear() {
-        return publicationYear;
+    public int getYear() {
+        return year;
     }
 
-    public void printBook() {
-        print(getTitle() + " | "
+    public String getDetails() {
+        return getTitle() + " | "
                 + getAuthor() + " | "
-                + getPublicationYear()
-        );
+                + getYear();
     }
 }

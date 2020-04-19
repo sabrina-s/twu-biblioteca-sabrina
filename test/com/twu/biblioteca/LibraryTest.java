@@ -76,7 +76,7 @@ public class LibraryTest {
         library.printBooks();
 
         assertThat(output.toString(),
-                containsString("Title | Author | Year of publication"));
+                containsString("Title | Author | Year"));
         assertThat(output.toString(),
                 both(containsString("Book1")).
                 and(containsString("Book2")));

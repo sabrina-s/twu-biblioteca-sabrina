@@ -26,7 +26,12 @@ public class BookTest {
     }
 
     @Test
-    public void getPublicationYearShouldGetBookPublicationYear() {
-        assertThat(book.getPublicationYear(), is(equalTo(1949)));
+    public void getYearShouldGetBookYear() {
+        assertThat(book.getYear(), is(equalTo(1949)));
+    }
+
+    @Test
+    public void getDetailsShouldGetBookDetails() {
+        assertEquals(book.getDetails(), "Nineteen Eighty-Four | George Orwell | 1949");
     }
 }

@@ -1,8 +1,10 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-public class Library {
+public class Library extends Printer {
     private ArrayList<Book> books;
     private ArrayList<Movie> movies;
 
@@ -21,17 +23,18 @@ public class Library {
         return books;
     }
 
+    public List<Book> getAvailableBooks() {
+        return books.stream().filter(b -> b.available == true ).collect(Collectors.toList());
+    }
+
     public ArrayList<Movie> getMovies() {
         return movies;
     }
 
     public void printBooks() {
-        System.out.println("Title | Author | Year of publication");
-
-        books.stream().filter(b -> b.available == true )
-                .forEach(book -> book.printBook());
-
-        System.out.println();
+        print("Title | Author | Year");
+        getAvailableBooks().forEach(book -> print(book.getDetails()));
+        print("-----------------------");
     }
 
     public void checkoutBook(String title) {
@@ -41,12 +44,14 @@ public class Library {
             if (b.getTitle().equals(title)) {
                 exists = true;
                 b.available = false;
-                System.out.println("Thank you! Enjoy the book");
+                print("Thank you! Enjoy the book");
+                print("-----------------------");
             }
         }
 
         if (exists == false) {
-            System.out.println("Sorry, that book is not available");
+            print("Sorry, that book is not available");
+            print("-----------------------");
         }
     }
 
@@ -57,12 +62,14 @@ public class Library {
             if (b.getTitle().equals(title) && !b.available) {
                 exists = true;
                 b.available = true;
-                System.out.println("Thank you for returning the book");
+                print("Thank you for returning the book");
+                print("-----------------------");
             }
         }
 
         if (exists == false) {
-            System.out.println("That is not a valid book to return");
+            print("That is not a valid book to return");
+            print("-----------------------");
         }
     }
 }

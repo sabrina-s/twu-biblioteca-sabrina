@@ -7,12 +7,14 @@ public class Main {
         Menu menu = new Menu();
 
         // populate library with books
-        Book book1 = new Book("Book1", "Author1", 2001);
-        Book book2 = new Book("Book2", "Author2", 2002);
-        Book book3 = new Book("Book3", "Author3", 2003);
-        library.addBook(book1);
-        library.addBook(book2);
-        library.addBook(book3);
+        library.addBook(new Book("Book1", "Author1", 2001));
+        library.addBook(new Book("Book2", "Author2", 2002));
+        library.addBook(new Book("Book3", "Author3", 2003));
+
+        // populate library with movies
+        library.addMovie(new Movie("Movie1", "Director1", 2001, 8));
+        library.addMovie(new Movie("Movie2", "Director2", 2002, 6));
+        library.addMovie(new Movie("Movie2", "Director3", 2002));
 
         BibliotecaApp app = new BibliotecaApp(
                 printer, library, menu

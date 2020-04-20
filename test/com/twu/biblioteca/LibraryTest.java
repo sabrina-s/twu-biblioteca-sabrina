@@ -66,9 +66,27 @@ public class LibraryTest {
     }
 
     @Test
+    public void getAvailableBooksShouldReturnOnlyAvailableBooks() {
+        book1.available = true;
+        book2.available = false;
+
+        assertThat(library.getAvailableBooks().size(), is(1));
+        assertThat(library.getAvailableBooks(), hasItems(book1));
+    }
+
+    @Test
     public void getMoviesShouldReturnAllMoviesInLibrary() {
         assertThat(library.getMovies().size(), is(1));
         assertThat(library.getMovies(), hasItems(movie1));
+    }
+
+    @Test
+    public void getAvailableMoviesShouldReturnOnlyAvailableMovies() {
+        library.addMovie(movie2);
+        movie1.available = false;
+
+        assertThat(library.getAvailableMovies().size(), is(1));
+        assertThat(library.getAvailableMovies(), hasItems(movie2));
     }
 
     @Test

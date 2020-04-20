@@ -17,18 +17,22 @@ public class Library extends Printer {
         books.add(book);
     }
 
-    public void addMovie(Movie movie) { movies.add(movie); };
+    public void addMovie(Movie movie) { movies.add(movie); }
 
     public ArrayList<Book> getBooks() {
         return books;
     }
 
     public List<Book> getAvailableBooks() {
-        return books.stream().filter(b -> b.available == true ).collect(Collectors.toList());
+        return books.stream().filter(b -> b.available).collect(Collectors.toList());
     }
 
     public ArrayList<Movie> getMovies() {
         return movies;
+    }
+
+    public List<Movie> getAvailableMovies() {
+        return movies.stream().filter(m -> m.available).collect(Collectors.toList());
     }
 
     public void printBooks() {
@@ -49,7 +53,7 @@ public class Library extends Printer {
             }
         }
 
-        if (exists == false) {
+        if (!exists) {
             print("Sorry, that book is not available");
             print("-----------------------");
         }
@@ -67,7 +71,7 @@ public class Library extends Printer {
             }
         }
 
-        if (exists == false) {
+        if (!exists) {
             print("That is not a valid book to return");
             print("-----------------------");
         }

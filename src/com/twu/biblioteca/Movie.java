@@ -29,4 +29,11 @@ public class Movie {
     public String getDirector() { return director; }
 
     public int getYear() { return year; }
+
+    public String getDetails() {
+        return getName() + " | "
+                + getDirector() + " | "
+                + getYear() + " | "
+                + getRating();
+    }
 }

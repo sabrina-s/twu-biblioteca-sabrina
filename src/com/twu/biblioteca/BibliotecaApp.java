@@ -47,6 +47,9 @@ public class BibliotecaApp {
             case "3":
                 returnBook();
                 break;
+            case "4":
+                library.printMovies();
+                break;
         }
     }
 

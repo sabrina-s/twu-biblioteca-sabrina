@@ -41,4 +41,9 @@ public class MovieTest {
     public void getRatingShouldReturnUnratedIfNonexistent() {
         assertThat(movieWithoutRating.getRating(), is(equalTo("unrated")));
     }
+
+    @Test
+    public void getDetailsShouldGetMovieDetails() {
+        assertEquals(movieWithoutRating.getDetails(), "Movie2 | Director2 | 2002 | unrated");
+    }
 }

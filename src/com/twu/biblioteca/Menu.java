@@ -11,7 +11,8 @@ public class Menu extends Printer {
                 "0. Quit",
                 "1. List of books",
                 "2. Checkout book",
-                "3. Return book"
+                "3. Return book",
+                "4. List of movies"
         ));
     }
 

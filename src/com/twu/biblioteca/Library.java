@@ -41,6 +41,12 @@ public class Library extends Printer {
         print("-----------------------");
     }
 
+    public void printMovies() {
+        print("Name | Director | Year | Rating");
+        getAvailableMovies().forEach(movie -> print(movie.getDetails()));
+        print("-----------------------");
+    }
+
     public void checkoutBook(String title) {
         boolean exists = false;
 

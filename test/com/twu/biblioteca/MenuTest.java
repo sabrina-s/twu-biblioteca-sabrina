@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
-import java.util.ArrayList;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -22,6 +22,7 @@ public class MenuTest {
                 both(containsString("Please select an option.")).
                 and(containsString("Quit")).
                 and(containsString("List of books")).
+                and(containsString("List of movies")).
                 and(containsString("Checkout book")).
                 and(containsString("Return book")));
     }

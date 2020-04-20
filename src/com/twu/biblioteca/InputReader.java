@@ -22,6 +22,8 @@ public class InputReader {
             System.out.print("Enter option number: ");
         } else if (type.equals("book")) {
             System.out.print("Enter title of book: ");
+        } else if (type.equals("movie")) {
+            System.out.print("Enter name of movie: ");
         }
     }
 
@@ -44,7 +46,7 @@ public class InputReader {
     private boolean validateInput(String input) {
         if (type.equals("menu") && VALID_MENU_INPUTS.contains(input)) {
             return true;
-        } else if (type.equals("book")) {
+        } else if (type.matches("book|movie")) {
             return true;
         } else {
             System.out.println("Please select a valid option!");

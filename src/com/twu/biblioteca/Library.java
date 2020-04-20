@@ -65,6 +65,24 @@ public class Library extends Printer {
         }
     }
 
+    public void checkoutMovie(String name) {
+        boolean exists = false;
+
+        for (Movie m : movies) {
+            if (m.getName().equals(name)) {
+                exists = true;
+                m.available = false;
+                print("Thank you! Enjoy the movie");
+                print("-----------------------");
+            }
+        }
+
+        if (!exists) {
+            print("Sorry, that movie is not available");
+            print("-----------------------");
+        }
+    }
+
     public void returnBook(String title) {
         boolean exists = false;
 

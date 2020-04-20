@@ -50,6 +50,9 @@ public class BibliotecaApp {
             case "4":
                 library.printMovies();
                 break;
+            case "5":
+                checkoutMovie();
+                break;
         }
     }
 
@@ -59,9 +62,17 @@ public class BibliotecaApp {
         return bookInputReader.getInput();
     }
 
+    private String movieInput() {
+        InputReader movieInputReader = new InputReader("movie");
+        movieInputReader.run();
+        return movieInputReader.getInput();
+    }
+
     private void checkoutBook() {
         library.checkoutBook(bookInput());
     }
+
+    private void checkoutMovie() { library.checkoutMovie(movieInput()); }
 
     private void returnBook() {
         library.returnBook(bookInput());

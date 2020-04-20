@@ -119,6 +119,24 @@ public class LibraryTest {
     }
 
     @Test
+    public void checkoutMovieShouldCheckoutMovieIfValid() {
+        library.checkoutMovie(movie1.getName());
+
+        assertThat(movie1.available, equalTo(false));
+        assertThat(output.toString(), containsString(
+                "Thank you! Enjoy the movie"));
+    }
+
+    @Test
+    public void checkoutMovieShouldReturnErrorMessageIfInvalid() {
+        library.checkoutMovie("Non-existent Movie");
+
+        assertThat(movie1.available, equalTo(true));
+        assertThat(output.toString(), containsString(
+                "Sorry, that movie is not available"));
+    }
+
+    @Test
     public void returnBookShouldReturnBookIfValid() {
         library.checkoutBook(book1.getTitle());
         library.returnBook(book1.getTitle());

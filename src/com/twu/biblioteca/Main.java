@@ -14,7 +14,7 @@ public class Main {
         // populate library with movies
         library.addMovie(new Movie("Movie1", "Director1", 2001, 8));
         library.addMovie(new Movie("Movie2", "Director2", 2002, 6));
-        library.addMovie(new Movie("Movie2", "Director3", 2002));
+        library.addMovie(new Movie("Movie3", "Director3", 2003));
 
         BibliotecaApp app = new BibliotecaApp(
                 printer, library, menu

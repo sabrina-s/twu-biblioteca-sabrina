@@ -19,7 +19,7 @@ public class InputReader {
 
     private void printInstructions() {
         if (type.equals("menu")) {
-            System.out.print("Enter option number: ");
+            System.out.print("Enter option: ");
         } else if (type.equals("book")) {
             System.out.print("Enter title of book: ");
         } else if (type.equals("movie")) {

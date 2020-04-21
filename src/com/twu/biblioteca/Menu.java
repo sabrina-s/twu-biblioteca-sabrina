@@ -5,23 +5,38 @@ import java.util.Arrays;
 
 public class Menu extends Printer {
     private ArrayList<String> menuOptions;
+    private ArrayList<String> restrictedMenuOptions;
 
     public Menu() {
         this.menuOptions = new ArrayList<String>(Arrays.asList(
-                "0. Quit",
-                "1. List of books",
-                "2. Checkout book",
-                "3. Return book",
-                "4. List of movies",
-                "5. Checkout movie"
+                "[q] Quit",
+                "[li] Login",
+                "[lob] List of books",
+                "[lom] List of movies"
+        ));
+        this.restrictedMenuOptions = new ArrayList<>(Arrays.asList(
+                "[q] Quit",
+                "[lob] List of books",
+                "[lom] List of movies",
+                "[cob] Checkout book",
+                "[com] Checkout movie",
+                "[rb] Return book"
         ));
     }
 
     public void printOptions() {
-        System.out.println("Please select an option.");
+        print("Please enter option (e.g. 'lob')");
         for(int i = 0; i < menuOptions.size(); i++) {
-            System.out.println(menuOptions.get(i));
+            print(menuOptions.get(i));
         }
-        System.out.println("");
+        print("");
+    }
+
+    public void printRestrictedOptions() {
+        print("Please enter option (e.g. 'cob')");
+        for(int i = 0; i < restrictedMenuOptions.size(); i++) {
+            print(restrictedMenuOptions.get(i));
+        }
+        print("");
     }
 }

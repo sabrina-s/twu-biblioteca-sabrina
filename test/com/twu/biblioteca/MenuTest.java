@@ -19,11 +19,27 @@ public class MenuTest {
         menu.printOptions();
 
         assertThat(output.toString(),
-                both(containsString("Please select an option.")).
+                both(containsString("Please enter option")).
+                and(containsString("Quit")).
+                and(containsString("Login")).
+                and(containsString("List of books")).
+                and(containsString("List of movies")));
+    }
+
+    @Test
+    public void printRestrictedOptionsShouldPrintRestrictedMenuOptions() {
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(output));
+
+        menu.printRestrictedOptions();
+
+        assertThat(output.toString(),
+                both(containsString("Please enter option")).
                 and(containsString("Quit")).
                 and(containsString("List of books")).
                 and(containsString("List of movies")).
                 and(containsString("Checkout book")).
+                and(containsString("Checkout movie")).
                 and(containsString("Return book")));
     }
 }

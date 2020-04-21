@@ -35,25 +35,33 @@ public class BibliotecaApp {
         System.out.println();
 
         switch(input) {
-            case "0":
+            case "q":
                 System.out.println("Goodbye!");
                 System.exit(0);
-            case "1":
+            case "li":
+                login();
+                break;
+            case "lob":
                 library.printBooks();
                 break;
-            case "2":
+            case "cob":
                 checkoutBook();
                 break;
-            case "3":
+            case "rb":
                 returnBook();
                 break;
-            case "4":
+            case "lom":
                 library.printMovies();
                 break;
-            case "5":
+            case "com":
                 checkoutMovie();
                 break;
         }
+    }
+
+    private void login() {
+//        TODO
+        System.out.println("log in here");
     }
 
     private String bookInput() {

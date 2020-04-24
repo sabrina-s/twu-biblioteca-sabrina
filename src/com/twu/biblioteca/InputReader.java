@@ -1,15 +1,18 @@
 package com.twu.biblioteca;
-import static com.twu.biblioteca.Constants.VALID_MENU_INPUTS;
+import static com.twu.biblioteca.Constants.VALID_PUBLIC_INPUTS;
+import static com.twu.biblioteca.Constants.VALID_RESTRICTED_INPUTS;
 
 import java.util.Scanner;
 
 public class InputReader {
     private String input;
     private String type;
+    private boolean authorized;
     private Scanner scanner = new Scanner(System.in);
 
-    public InputReader(String type) {
+    public InputReader(String type, boolean authorized) {
         this.type = type;
+        this.authorized = authorized;
     }
 
     public void run() {
@@ -44,9 +47,11 @@ public class InputReader {
     }
 
     private boolean validateInput(String input) {
-        if (type.equals("menu") && VALID_MENU_INPUTS.contains(input)) {
+        if (type.matches("book|movie")) { return true; }
+
+        if (type.equals("menu") && authorized && VALID_RESTRICTED_INPUTS.contains(input)) {
             return true;
-        } else if (type.matches("book|movie")) {
+        } else if (type.equals("menu") && VALID_PUBLIC_INPUTS.contains(input)) {
             return true;
         } else {
             System.out.println("Please select a valid option!");

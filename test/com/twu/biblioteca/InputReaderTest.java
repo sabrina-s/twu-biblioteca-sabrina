@@ -17,7 +17,7 @@ public class InputReaderTest {
     private ByteArrayInputStream input;
     private ByteArrayOutputStream output;
 
-    InputReader inputReader = new InputReader("menu");
+    InputReader inputReader = new InputReader("menu", true);
     String userInput = "1";
 
     @Before

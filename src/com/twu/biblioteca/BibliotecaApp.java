@@ -9,7 +9,7 @@ public class BibliotecaApp {
     private Library library;
     private UserRepository userRepository;
     private Menu menu;
-    private Boolean loggedIn = false;
+    private Boolean authorized = false;
 
     public BibliotecaApp(IPrinter printer, Library library, UserRepository userRepository, Menu menu) {
         this.printer = printer;
@@ -23,14 +23,14 @@ public class BibliotecaApp {
         printer.print(WELCOME_MESSAGE);
 
 //        display menu
-        if (loggedIn) {
+        if (authorized) {
             menu.printRestrictedOptions();
         } else {
             menu.printOptions();
         }
 
 //        get user menu input
-        InputReader menuInputReader = new InputReader("menu");
+        InputReader menuInputReader = new InputReader("menu", authorized);
         menuInputReader.run();
         String menuInput = menuInputReader.getInput();
 
@@ -80,20 +80,20 @@ public class BibliotecaApp {
         boolean loginIsValid = userRepository.loginIsValid(libraryNumber, password);
 
         if (loginIsValid) {
-            loggedIn = true;
+            authorized = true;
         } else {
             printer.print("Invalid library number/password.");
         }
     }
 
     private String bookInput() {
-        InputReader bookInputReader = new InputReader("book");
+        InputReader bookInputReader = new InputReader("book", authorized);
         bookInputReader.run();
         return bookInputReader.getInput();
     }
 
     private String movieInput() {
-        InputReader movieInputReader = new InputReader("movie");
+        InputReader movieInputReader = new InputReader("movie", authorized);
         movieInputReader.run();
         return movieInputReader.getInput();
     }

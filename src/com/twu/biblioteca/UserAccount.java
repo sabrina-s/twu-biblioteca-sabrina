@@ -13,7 +13,11 @@ public class UserAccount {
         return libraryNumber;
     }
 
-    public boolean isValid(String inputPassword) {
-        return inputPassword == password;
+    public boolean isValidLibraryNumber(String libraryNumber) {
+        return libraryNumber.equals(this.libraryNumber);
+    }
+
+    public boolean isValidPassword(String inputPassword) {
+        return inputPassword.equals(password);
     }
 }

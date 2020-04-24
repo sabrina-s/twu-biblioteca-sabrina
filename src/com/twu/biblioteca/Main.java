@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Printer printer = new Printer();
         Library library = new Library();
+        UserRepository userRepository = new UserRepository();
         Menu menu = new Menu();
 
         // populate library with books
@@ -17,7 +18,7 @@ public class Main {
         library.addMovie(new Movie("Movie3", "Director3", 2003));
 
         BibliotecaApp app = new BibliotecaApp(
-                printer, library, menu
+                printer, library, userRepository, menu
         );
 
         boolean active = app.execute();

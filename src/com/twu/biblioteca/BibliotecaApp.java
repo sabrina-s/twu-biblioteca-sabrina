@@ -1,15 +1,20 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 import static com.twu.biblioteca.Constants.WELCOME_MESSAGE;
 
 public class BibliotecaApp {
     private IPrinter printer;
     private Library library;
+    private UserRepository userRepository;
     private Menu menu;
+    private Boolean loggedIn = false;
 
-    public BibliotecaApp(IPrinter printer, Library library, Menu menu) {
+    public BibliotecaApp(IPrinter printer, Library library, UserRepository userRepository, Menu menu) {
         this.printer = printer;
         this.library = library;
+        this.userRepository = userRepository;
         this.menu = menu;
     }
 
@@ -18,7 +23,11 @@ public class BibliotecaApp {
         printer.print(WELCOME_MESSAGE);
 
 //        display menu
-        menu.printOptions();
+        if (loggedIn) {
+            menu.printRestrictedOptions();
+        } else {
+            menu.printOptions();
+        }
 
 //        get user menu input
         InputReader menuInputReader = new InputReader("menu");
@@ -60,8 +69,21 @@ public class BibliotecaApp {
     }
 
     private void login() {
-//        TODO
-        System.out.println("log in here");
+        Scanner loginScanner = new Scanner(System.in);
+
+        System.out.print("Please enter your library number (e.g. 111-1111): ");
+        String libraryNumber = loginScanner.nextLine();
+
+        System.out.print("Please enter your password: ");
+        String password = loginScanner.nextLine();
+
+        boolean loginIsValid = userRepository.loginIsValid(libraryNumber, password);
+
+        if (loginIsValid) {
+            loggedIn = true;
+        } else {
+            printer.print("Invalid library number/password.");
+        }
     }
 
     private String bookInput() {

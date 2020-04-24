@@ -20,14 +20,14 @@ public class UserAccountTest {
     }
 
     @Test
-    public void isValidShouldReturnTrueIfInputPasswordIsCorrect() {
-        String input = "password123";
-        assertThat(userAccount.isValid(input), is(true));
+    public void isValidPasswordShouldReturnTrueIfPasswordIsCorrect() {
+        String pw = "password123";
+        assertThat(userAccount.isValidPassword(pw), is(true));
     }
 
     @Test
     public void isValidShouldReturnFalseIfInputPasswordIsWrong() {
-        String input = "wrong-password";
-        assertThat(userAccount.isValid(input), is(false));
+        String pw = "wrong-password";
+        assertThat(userAccount.isValidPassword(pw), is(false));
     }
 }

@@ -20,7 +20,8 @@ public class Menu extends Printer {
                 "[lom] List of movies",
                 "[cob] Checkout book",
                 "[com] Checkout movie",
-                "[rb] Return book"
+                "[rb] Return book",
+                "[inv] Show inventory"
         ));
     }
 

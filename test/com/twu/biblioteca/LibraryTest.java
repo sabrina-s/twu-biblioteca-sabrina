@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.hamcrest.CoreMatchers.containsString;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 
@@ -108,6 +109,7 @@ public class LibraryTest {
         assertThat(book1.available, equalTo(false));
         assertThat(output.toString(), containsString(
                 "Thank you! Enjoy the book"));
+        assertEquals(user.getBooks().size(), 1);
     }
 
     @Test
@@ -117,6 +119,7 @@ public class LibraryTest {
         assertThat(book1.available, equalTo(true));
         assertThat(output.toString(), containsString(
                 "Sorry, that book is not available"));
+        assertEquals(user.getBooks().size(), 0);
     }
 
     @Test
@@ -140,16 +143,17 @@ public class LibraryTest {
     @Test
     public void returnBookShouldReturnBookIfValid() {
         library.checkoutBook(book1.getTitle(), user);
-        library.returnBook(book1.getTitle());
+        library.returnBook(book1.getTitle(), user);
 
         assertThat(book1.available, equalTo(true));
         assertThat(output.toString(), containsString(
                 "Thank you for returning the book"));
+        assertEquals(user.getBooks().size(), 0);
     }
 
     @Test
     public void returnBookShouldReturnErrorMessageIfBookWasNotCheckedOut() {
-        library.returnBook(book1.getTitle());
+        library.returnBook(book1.getTitle(), user);
 
         assertThat(output.toString(), containsString(
                 "That is not a valid book to return"));
@@ -157,7 +161,7 @@ public class LibraryTest {
 
     @Test
     public void returnBookShouldReturnErrorMessageIfBookDoesNotExist() {
-        library.returnBook("Non-existent Book");
+        library.returnBook("Non-existent Book", user);
 
         assertThat(output.toString(), containsString(
                 "That is not a valid book to return"));

@@ -84,13 +84,14 @@ public class Library extends Printer {
         }
     }
 
-    public void returnBook(String title) {
+    public void returnBook(String title, UserAccount ua) {
         boolean exists = false;
 
         for (Book b : books) {
             if (b.getTitle().equals(title) && !b.available) {
                 exists = true;
                 b.available = true;
+                ua.removeBook(b);
                 print("Thank you for returning the book");
                 print("-----------------------");
             }

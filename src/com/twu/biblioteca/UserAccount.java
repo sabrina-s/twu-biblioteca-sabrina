@@ -25,13 +25,19 @@ public class UserAccount {
         return inputPassword.equals(password);
     }
 
+    public ArrayList<Book> getBooks() { return books; }
+
     public void addBook(Book book) {
         books.add(book);
     }
 
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+
     public void showBooks() {
         for (Book b : books) {
-            System.out.println(b.getTitle());
+            System.out.println(b.getDetails());
         }
     }
 }

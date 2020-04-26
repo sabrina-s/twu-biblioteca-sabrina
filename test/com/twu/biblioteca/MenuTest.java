@@ -40,6 +40,7 @@ public class MenuTest {
                 and(containsString("List of movies")).
                 and(containsString("Checkout book")).
                 and(containsString("Checkout movie")).
-                and(containsString("Return book")));
+                and(containsString("Return book")).
+                and(containsString("Show inventory")));
     }
 }

@@ -65,6 +65,8 @@ public class BibliotecaApp {
             case "com":
                 checkoutMovie();
                 break;
+            case "inv":
+                displayInventory();
         }
     }
 
@@ -105,6 +107,11 @@ public class BibliotecaApp {
     private void checkoutMovie() { library.checkoutMovie(movieInput()); }
 
     private void returnBook() {
-        library.returnBook(bookInput());
+        library.returnBook(bookInput(), userRepository.getLoggedInUser());
+    }
+
+    private void displayInventory() {
+        printer.print("Your checked out books: ");
+        userRepository.getLoggedInUser().showBooks();
     }
 }

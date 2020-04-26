@@ -11,7 +11,8 @@ public class UserAccountTest {
 
     @Before
     public void beforeEach() {
-        userAccount = new UserAccount("000-0001", "password123");
+        userAccount = new UserAccount("000-0001", "password123",
+                "Sabrina", "sabrina@gmail.com", "98765432");
     }
 
     @Test
@@ -26,7 +27,7 @@ public class UserAccountTest {
     }
 
     @Test
-    public void isValidShouldReturnFalseIfInputPasswordIsWrong() {
+    public void isValidPasswordShouldReturnFalseIfInputPasswordIsWrong() {
         String pw = "wrong-password";
         assertThat(userAccount.isValidPassword(pw), is(false));
     }

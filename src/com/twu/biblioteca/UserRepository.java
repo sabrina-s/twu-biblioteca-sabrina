@@ -5,7 +5,8 @@ import java.util.Arrays;
 
 public class UserRepository {
     private ArrayList<UserAccount> userAccounts = new ArrayList<>(Arrays.asList(
-            new UserAccount("000-0001", "password111")));
+            new UserAccount("000-0001", "password111",
+                    "Sabrina", "sabrina@gmail.com", "98765432")));
     private UserAccount loggedInUser;
 
     public UserRepository() {}

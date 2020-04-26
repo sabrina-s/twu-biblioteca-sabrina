@@ -12,5 +12,5 @@ public final class Constants {
                     "q", "li", "lob", "lom"));
     public static final ArrayList<String> VALID_RESTRICTED_INPUTS =
             new ArrayList<>(Arrays.asList(
-                    "q", "lob", "lom", "li", "cob", "rb", "com", "inv"));
+                    "q", "lob", "lom", "li", "cob", "rb", "com", "inv", "pro"));
 }

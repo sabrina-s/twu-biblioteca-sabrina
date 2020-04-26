@@ -36,6 +36,7 @@ public class MenuTest {
         assertThat(output.toString(),
                 both(containsString("Please enter option")).
                 and(containsString("Quit")).
+                and(containsString("Profile")).
                 and(containsString("List of books")).
                 and(containsString("List of movies")).
                 and(containsString("Checkout book")).

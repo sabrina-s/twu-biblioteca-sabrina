@@ -16,6 +16,7 @@ public class Menu extends Printer {
         ));
         this.restrictedMenuOptions = new ArrayList<>(Arrays.asList(
                 "[q] Quit",
+                "[pro] Profile",
                 "[lob] List of books",
                 "[lom] List of movies",
                 "[cob] Checkout book",

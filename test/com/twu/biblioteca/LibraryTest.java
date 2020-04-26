@@ -14,7 +14,8 @@ import static org.hamcrest.CoreMatchers.*;
 
 public class LibraryTest {
     Library library = new Library();
-    UserAccount user = new UserAccount("111-1111", "password");
+    UserAccount user = new UserAccount("111-1111", "password",
+            "Sabrina", "sabrina@gmail.com", "98765432");
     private Book book1;
     private Book book2;
     private Book book3;

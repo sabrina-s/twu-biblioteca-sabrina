@@ -6,11 +6,23 @@ public class UserAccount {
     private String libraryNumber;
     private String password;
     private ArrayList<Book> books;
+    private String name;
+    private String email;
+    private String phoneNumber;
 
-    public UserAccount(String libraryNumber, String password) {
+    public UserAccount(String libraryNumber, String password, String name, String email, String phoneNumber) {
         this.libraryNumber = libraryNumber;
         this.password = password;
         this.books = new ArrayList<>();
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void showProfile() {
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+        System.out.println("Phone Number: " + phoneNumber);
     }
 
     public String getLibraryNumber() {

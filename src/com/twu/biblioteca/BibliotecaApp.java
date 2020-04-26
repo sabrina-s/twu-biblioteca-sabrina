@@ -67,6 +67,8 @@ public class BibliotecaApp {
                 break;
             case "inv":
                 displayInventory();
+            case "pro":
+                displayProfile();
         }
     }
 
@@ -101,17 +103,25 @@ public class BibliotecaApp {
     }
 
     private void checkoutBook() {
-        library.checkoutBook(bookInput(), userRepository.getLoggedInUser());
+        library.checkoutBook(bookInput(), getCurrentUser());
     }
 
     private void checkoutMovie() { library.checkoutMovie(movieInput()); }
 
     private void returnBook() {
-        library.returnBook(bookInput(), userRepository.getLoggedInUser());
+        library.returnBook(bookInput(), getCurrentUser());
     }
 
     private void displayInventory() {
         printer.print("Your checked out books: ");
-        userRepository.getLoggedInUser().showBooks();
+        getCurrentUser().showBooks();
+    }
+
+    private void displayProfile() {
+        getCurrentUser().showProfile();
+    }
+
+    private UserAccount getCurrentUser() {
+        return userRepository.getLoggedInUser();
     }
 }

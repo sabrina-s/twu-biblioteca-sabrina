@@ -13,6 +13,7 @@ import static org.hamcrest.CoreMatchers.*;
 
 public class LibraryTest {
     Library library = new Library();
+    UserAccount user = new UserAccount("111-1111", "password");
     private Book book1;
     private Book book2;
     private Book book3;
@@ -102,7 +103,7 @@ public class LibraryTest {
 
     @Test
     public void checkoutBookShouldCheckoutBookIfValid() {
-        library.checkoutBook(book1.getTitle());
+        library.checkoutBook(book1.getTitle(), user);
 
         assertThat(book1.available, equalTo(false));
         assertThat(output.toString(), containsString(
@@ -111,7 +112,7 @@ public class LibraryTest {
 
     @Test
     public void checkoutBookShouldReturnErrorMessageIfInvalid() {
-        library.checkoutBook("Non-existent Book");
+        library.checkoutBook("Non-existent Book", user);
 
         assertThat(book1.available, equalTo(true));
         assertThat(output.toString(), containsString(
@@ -138,7 +139,7 @@ public class LibraryTest {
 
     @Test
     public void returnBookShouldReturnBookIfValid() {
-        library.checkoutBook(book1.getTitle());
+        library.checkoutBook(book1.getTitle(), user);
         library.returnBook(book1.getTitle());
 
         assertThat(book1.available, equalTo(true));

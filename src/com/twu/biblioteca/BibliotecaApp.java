@@ -99,7 +99,7 @@ public class BibliotecaApp {
     }
 
     private void checkoutBook() {
-        library.checkoutBook(bookInput());
+        library.checkoutBook(bookInput(), userRepository.getLoggedInUser());
     }
 
     private void checkoutMovie() { library.checkoutMovie(movieInput()); }

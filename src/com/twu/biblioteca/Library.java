@@ -47,13 +47,14 @@ public class Library extends Printer {
         print("-----------------------");
     }
 
-    public void checkoutBook(String title) {
+    public void checkoutBook(String title, UserAccount ua) {
         boolean exists = false;
 
         for (Book b : books) {
             if (b.getTitle().equals(title)) {
                 exists = true;
                 b.available = false;
+                ua.addBook(b);
                 print("Thank you! Enjoy the book");
                 print("-----------------------");
             }
